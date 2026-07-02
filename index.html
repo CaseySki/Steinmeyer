@@ -2,705 +2,825 @@
 <meta name="description" content="Historic office and retail space for lease in the Steinmeyer Building, a landmark 1893 Romanesque Revival building on Milwaukee's Old World Third Street." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
 <style>
   /* ---------- Brand tokens ---------- */
   :root {
     --brick: #9C3B2E;
-    --brick-dark: #7d2f24;
-    --terracotta: #C97A4A;
-    --dark: #2B2622;
-    --light: #F5EFE4;
-    --light-2: #ece2d0;
-    --white: #fffdf9;
-    --font-serif: 'Playfair Display', Georgia, serif;
+    --tan: #A9764B;
+    --tan-light: #C9A27A;
+    --cream: #FAF6EE;
+    --blush: #F1E4D6;
+    --ink: #1C1815;
+    --muted: #6B6156;
+    --near-black: #15120E;
+    --ghost: #E7DCC8;
+    --line: #DDD0BC;
+    --line-dark: rgba(250,246,238,0.14);
+    --white: #FFFFFF;
+    --font-display: 'Archivo Black', 'Inter', sans-serif;
+    --font-serif: 'Lora', Georgia, serif;
     --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    --max-w: 1120px;
+    --max-w: 1180px;
+    --radius-photo: 14px;
   }
 
   * { box-sizing: border-box; }
   html { scroll-behavior: smooth; }
   body {
     margin: 0;
-    font-family: var(--font-sans);
-    color: var(--dark);
-    background: var(--light);
-    line-height: 1.6;
+    font-family: var(--font-serif);
+    color: var(--ink);
+    background: var(--cream);
+    line-height: 1.7;
     -webkit-font-smoothing: antialiased;
   }
   img { max-width: 100%; display: block; }
-  h1, h2, h3 { font-family: var(--font-serif); font-weight: 700; line-height: 1.15; margin: 0 0 0.5em; }
+  h1, h2, h3 { font-family: var(--font-display); font-weight: 400; line-height: 1.05; margin: 0 0 0.4em; letter-spacing: -0.01em; }
   p { margin: 0 0 1em; }
   a { color: inherit; }
-  .container { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
-  .eyebrow {
+  .container { max-width: var(--max-w); margin: 0 auto; padding: 0 32px; }
+  .label {
+    font-family: var(--font-sans);
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--tan);
+    font-weight: 600;
+  }
+  section { position: relative; padding: 110px 0; }
+  .on-blush { background: var(--blush); }
+  .on-dark { background: var(--near-black); color: var(--cream); }
+  .on-dark .muted-text { color: rgba(250,246,238,0.62); }
+  .muted-text { color: var(--muted); }
+
+  /* ---------- Buttons / links ---------- */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 16px 30px;
+    border-radius: 2px;
+    text-decoration: none;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: transform 0.15s ease, background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  }
+  .btn-ink { background: var(--ink); color: var(--cream); }
+  .btn-ink:hover { background: #000; }
+  .btn-tan { background: var(--tan); color: var(--white); }
+  .btn-tan:hover { background: #8f6038; }
+  .btn-line { background: transparent; border-color: rgba(250,246,238,0.4); color: inherit; }
+  .btn-line:hover { border-color: var(--cream); }
+  .link-arrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
     font-family: var(--font-sans);
     font-size: 0.78rem;
     letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: var(--brick);
     font-weight: 600;
-    margin-bottom: 0.75em;
-    display: block;
-  }
-  section { position: relative; padding: 88px 0; overflow: hidden; }
-
-  /* subtle paper-grain texture used behind section breaks */
-  .texture::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    opacity: 0.5;
-    background-image: radial-gradient(rgba(43,38,34,0.05) 1px, transparent 1px);
-    background-size: 4px 4px;
-  }
-
-  .btn {
-    display: inline-block;
-    font-family: var(--font-sans);
-    font-weight: 600;
-    font-size: 0.95rem;
-    padding: 14px 30px;
-    border-radius: 999px;
+    color: var(--tan);
     text-decoration: none;
-    border: 2px solid transparent;
-    cursor: pointer;
-    transition: transform 0.15s ease, box-shadow 0.2s ease, background 0.2s ease, color 0.2s ease;
+    border-bottom: 1px solid transparent;
+    padding-bottom: 3px;
+    transition: border-color 0.2s ease, gap 0.2s ease;
   }
-  .btn-primary {
-    background: linear-gradient(135deg, var(--brick), var(--terracotta));
-    color: var(--white);
-    box-shadow: 0 8px 22px rgba(156,59,46,0.28);
-  }
-  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(156,59,46,0.38); }
-  .btn-outline { background: transparent; border-color: currentColor; color: inherit; }
-  .btn-outline:hover { background: var(--dark); color: var(--white); border-color: var(--dark); transform: translateY(-2px); }
-  .btn-sm { padding: 10px 20px; font-size: 0.85rem; }
+  .link-arrow:hover { border-color: var(--tan); gap: 12px; }
 
-  /* ---------- Sticky pill nav ---------- */
+  /* ---------- Nav ---------- */
   .nav {
-    position: fixed;
-    top: 16px;
-    left: 50%;
-    transform: translateX(-50%);
+    position: sticky;
+    top: 0;
     z-index: 100;
-    width: min(920px, calc(100% - 32px));
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px;
-    padding: 10px 12px 10px 22px;
-    border-radius: 999px;
-    background: rgba(43,38,34,0.55);
-    backdrop-filter: blur(14px) saturate(1.3);
-    -webkit-backdrop-filter: blur(14px) saturate(1.3);
-    border: 1px solid rgba(245,239,228,0.14);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.18);
-    transition: background 0.3s ease, box-shadow 0.3s ease;
+    background: var(--cream);
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
   }
-  .nav.is-scrolled { background: rgba(43,38,34,0.85); box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+  .nav.is-scrolled { border-color: var(--line); box-shadow: 0 4px 20px rgba(28,24,21,0.05); }
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; padding: 22px 0; }
   .nav .brand {
-    font-family: var(--font-serif);
+    font-family: var(--font-sans);
     font-weight: 700;
-    font-size: 1rem;
-    color: var(--white);
+    font-size: 1.05rem;
+    letter-spacing: 0.14em;
     text-decoration: none;
-    white-space: nowrap;
+    color: var(--ink);
   }
-  .nav-links { display: flex; gap: 22px; list-style: none; margin: 0; padding: 0; }
+  .nav-links { display: flex; gap: 34px; list-style: none; margin: 0; padding: 0; }
   .nav-links a {
-    font-size: 0.85rem;
+    font-family: var(--font-sans);
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
     font-weight: 500;
-    color: rgba(245,239,228,0.85);
+    color: var(--muted);
     text-decoration: none;
     transition: color 0.2s ease;
   }
-  .nav-links a:hover { color: var(--terracotta); }
-  .nav .btn-primary { padding: 10px 20px; font-size: 0.82rem; box-shadow: none; }
-  @media (max-width: 760px) { .nav-links { display: none; } }
+  .nav-links a:hover { color: var(--ink); }
+  @media (max-width: 860px) { .nav-links { display: none; } }
 
-  /* ---------- Floating CTA (mobile) ---------- */
-  .float-cta {
-    position: fixed;
-    right: 18px;
-    bottom: 18px;
-    z-index: 99;
-    opacity: 0;
-    transform: translateY(16px) scale(0.94);
-    pointer-events: none;
-    transition: opacity 0.3s ease, transform 0.3s ease;
-    padding: 14px 22px;
-    font-size: 0.85rem;
-    box-shadow: 0 10px 28px rgba(156,59,46,0.4);
+  /* ---------- Photo placeholder ---------- */
+  .photo {
+    position: relative;
+    border-radius: var(--radius-photo);
+    overflow: hidden;
+    background: linear-gradient(150deg, #d9c7a8, #a9895f 60%, #7a6142);
   }
-  .float-cta.is-visible { opacity: 1; transform: translateY(0) scale(1); pointer-events: auto; }
-
-  /* ---------- Stat strip ---------- */
-  .stat-strip {
-    background: var(--white);
-    border-bottom: 1px solid var(--light-2);
+  .photo.tone-graphite { background: linear-gradient(150deg, #4a4640, #232019 65%, #15130f); }
+  .photo.tone-riverwalk { background: linear-gradient(150deg, #cbb488, #8f7248 55%, #4c3c26); }
+  .photo::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      repeating-linear-gradient(90deg, rgba(255,255,255,0.05) 0 1px, transparent 1px 34px),
+      repeating-linear-gradient(0deg, rgba(0,0,0,0.05) 0 1px, transparent 1px 34px);
   }
-  .stat-strip .container {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 16px;
-    padding-top: 40px;
-    padding-bottom: 40px;
+  .photo-icon {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.55;
   }
-  .stat { text-align: center; }
-  .stat .num {
-    font-family: var(--font-serif);
-    font-weight: 700;
-    font-size: clamp(1.5rem, 3.4vw, 2.2rem);
-    background: linear-gradient(135deg, var(--brick), var(--terracotta));
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-  }
-  .stat .label {
-    font-size: 0.76rem;
-    letter-spacing: 0.08em;
+  .photo-icon svg { width: 30%; height: 30%; }
+  .photo-caption {
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    padding: 12px 16px;
+    font-family: var(--font-sans);
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: #7a7167;
-    margin-top: 4px;
+    color: var(--cream);
+    background: linear-gradient(0deg, rgba(0,0,0,0.55), transparent);
   }
-  @media (max-width: 700px) {
-    .stat-strip .container { grid-template-columns: repeat(2, 1fr); }
-  }
-
-  /* ---------- Centered section intro ---------- */
-  .section-intro { text-align: center; max-width: 640px; margin: 0 auto 8px; }
-  .section-intro p { color: #514a43; }
-  .section-intro.on-dark p { color: rgba(245,239,228,0.8); }
-
-  /* ---------- Scroll reveal ---------- */
-  .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
-  .reveal.is-visible { opacity: 1; transform: translateY(0); }
-  .reveal-stagger > * { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
-  .reveal-stagger.is-visible > * { opacity: 1; transform: translateY(0); }
-  .reveal-stagger.is-visible > *:nth-child(1) { transition-delay: 0.02s; }
-  .reveal-stagger.is-visible > *:nth-child(2) { transition-delay: 0.09s; }
-  .reveal-stagger.is-visible > *:nth-child(3) { transition-delay: 0.16s; }
-  .reveal-stagger.is-visible > *:nth-child(4) { transition-delay: 0.23s; }
-  .reveal-stagger.is-visible > *:nth-child(5) { transition-delay: 0.3s; }
-  .reveal-stagger.is-visible > *:nth-child(6) { transition-delay: 0.37s; }
+  /* Every .photo block is a stand-in graphic (sandbox couldn't fetch/verify
+     external photo URLs). Swap by replacing the .photo div's background with
+     background: url('images/whatever.jpg') center/cover no-repeat; and
+     removing the .photo-icon / .photo-caption children if desired. */
 
   /* ---------- Hero ---------- */
   .hero {
     min-height: 100svh;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: var(--white);
+    justify-content: flex-end;
     position: relative;
-    padding: 24px;
-    background:
-      radial-gradient(ellipse 60% 45% at 18% 12%, rgba(201,122,74,0.55), transparent 60%),
-      radial-gradient(ellipse 55% 50% at 88% 20%, rgba(156,59,46,0.6), transparent 60%),
-      radial-gradient(ellipse 70% 60% at 50% 100%, rgba(201,122,74,0.35), transparent 65%),
-      linear-gradient(180deg, #241f1c 0%, var(--dark) 100%);
+    padding: 0;
+    color: var(--white);
+    background: linear-gradient(150deg, #8a7355 0%, #4c3d29 45%, #241b12 100%);
     overflow: hidden;
+  }
+  .hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      repeating-linear-gradient(90deg, rgba(255,255,255,0.04) 0 1px, transparent 1px 60px),
+      repeating-linear-gradient(0deg, rgba(0,0,0,0.06) 0 1px, transparent 1px 60px);
   }
   .hero::after {
     content: "";
     position: absolute;
     inset: 0;
-    background-image: repeating-linear-gradient(90deg, rgba(245,239,228,0.035) 0 2px, transparent 2px 84px);
-    pointer-events: none;
+    background: linear-gradient(0deg, rgba(15,12,8,0.88) 0%, rgba(15,12,8,0.15) 42%, rgba(15,12,8,0.35) 100%);
   }
-  /* PLACEHOLDER: to use a real exterior photo instead of the gradient mesh,
-     add   , url('images/hero-building.jpg') center/cover no-repeat
-     to the end of the background list above (photo will show through the
-     gradients as a tint/overlay). */
-  .hero .eyebrow-pill {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
+  /* PLACEHOLDER: replace .hero's background + ::before/::after treatment with
+     background: url('images/hero-exterior.jpg') center/cover no-repeat;
+     plus a single dark gradient overlay for text legibility, once a real
+     exterior photo is available. */
+  .hero-inner { position: relative; z-index: 1; padding: 0 32px 64px; }
+  .hero-word {
+    font-family: var(--font-display);
+    font-size: clamp(3.4rem, 12vw, 8.8rem);
+    line-height: 0.86;
+    margin: 0;
+    letter-spacing: -0.01em;
+  }
+  .hero-word.right { text-align: right; }
+  .hero-meta { max-width: var(--max-w); margin: 30px auto 0; }
+  .hero-caption {
+    font-family: var(--font-sans);
     font-size: 0.76rem;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.16em;
     text-transform: uppercase;
-    font-weight: 600;
-    color: rgba(245,239,228,0.9);
-    background: rgba(245,239,228,0.08);
-    border: 1px solid rgba(245,239,228,0.22);
-    padding: 8px 18px;
-    border-radius: 999px;
-    margin-bottom: 26px;
-    position: relative;
+    color: rgba(250,246,238,0.75);
+    margin-bottom: 16px;
   }
-  .hero .eyebrow-pill .pulse-dot {
-    width: 7px; height: 7px; border-radius: 50%;
-    background: var(--terracotta);
-    box-shadow: 0 0 0 0 rgba(201,122,74,0.7);
-    animation: pulse 2s infinite;
+  .hero-desc {
+    font-family: var(--font-serif);
+    font-size: clamp(1.05rem, 2vw, 1.3rem);
+    max-width: 640px;
+    color: rgba(250,246,238,0.94);
+    margin-bottom: 20px;
   }
-  @keyframes pulse {
-    0% { box-shadow: 0 0 0 0 rgba(201,122,74,0.55); }
-    70% { box-shadow: 0 0 0 9px rgba(201,122,74,0); }
-    100% { box-shadow: 0 0 0 0 rgba(201,122,74,0); }
+  .hero-coords {
+    font-family: var(--font-sans);
+    font-size: 0.76rem;
+    letter-spacing: 0.06em;
+    color: rgba(250,246,238,0.55);
+    margin-bottom: 34px;
   }
-  .hero h1 {
-    font-size: clamp(2.6rem, 7vw, 4.6rem);
-    margin-bottom: 0.3em;
-    position: relative;
-  }
-  .hero h1 .accent {
-    background: linear-gradient(135deg, var(--terracotta), #e0a67a);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-  }
-  .hero .sub {
-    font-size: clamp(1rem, 2.2vw, 1.25rem);
-    font-weight: 500;
-    letter-spacing: 0.02em;
-    opacity: 0.85;
-  }
-  .hero .badge {
-    margin-top: 30px;
-    font-size: 0.78rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    border: 1px solid rgba(255,255,255,0.28);
-    background: rgba(245,239,228,0.06);
-    padding: 10px 20px;
-    border-radius: 999px;
-  }
-  .scroll-cue {
-    position: absolute;
-    bottom: 28px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 22px;
-    height: 34px;
-    border: 2px solid rgba(255,255,255,0.7);
-    border-radius: 12px;
-  }
-  .scroll-cue::before {
-    content: "";
-    position: absolute;
-    top: 6px;
-    left: 50%;
-    width: 4px;
-    height: 8px;
-    margin-left: -2px;
-    background: rgba(255,255,255,0.85);
-    border-radius: 2px;
-    animation: cue 1.6s ease-in-out infinite;
-  }
-  @keyframes cue { 0% { opacity: 1; transform: translateY(0); } 70% { opacity: 0; transform: translateY(10px); } 100% { opacity: 0; } }
+  .hero-actions { display: flex; align-items: center; gap: 26px; flex-wrap: wrap; }
+  .hero-actions .link-arrow { color: rgba(250,246,238,0.85); }
+  .hero-actions .link-arrow:hover { border-color: rgba(250,246,238,0.85); }
 
-  /* ---------- History ---------- */
-  .history { background: var(--white); }
-  .history-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 56px;
-    align-items: center;
+  /* ---------- Reveal ---------- */
+  .reveal { opacity: 0; transform: translateY(26px); transition: opacity 0.8s ease, transform 0.8s ease; }
+  .reveal.is-visible { opacity: 1; transform: translateY(0); }
+
+  /* ---------- Section header ---------- */
+  .section-header { text-align: center; max-width: 760px; margin: 0 auto 70px; }
+  .section-header .rule-label {
+    display: flex; align-items: center; gap: 20px;
+    justify-content: center;
+    margin-bottom: 26px;
   }
-  .history-photo {
-    aspect-ratio: 4/5;
-    border-radius: 22px;
-    position: relative;
-    background: linear-gradient(165deg, #d8cdb8, #b9ab8e);
-    filter: sepia(0.35) contrast(1.02);
-    border: 10px solid var(--white);
-    box-shadow: 0 14px 34px rgba(43,38,34,0.25), 0 0 0 1px rgba(43,38,34,0.08);
-    overflow: hidden;
+  .section-header .rule-label .rule { height: 1px; width: 90px; background: var(--line); }
+  .on-dark .section-header .rule-label .rule { background: var(--line-dark); }
+  .section-header h2 {
+    font-size: clamp(2.1rem, 5vw, 3.6rem);
   }
-  /* PLACEHOLDER: swap the .history-photo background for
-     background: url('images/steinmeyer-historic.jpg') center/cover no-repeat;
-     using an archival black-and-white photo of the building. */
-  .history-photo svg { position: absolute; inset: 0; width: 100%; height: 100%; }
-  .history-photo .caption {
-    position: absolute;
-    left: 0; right: 0; bottom: 0;
-    padding: 10px 14px;
+  .section-header h2 .tan { color: var(--tan); display: block; }
+
+  /* ---------- Timeline ---------- */
+  .timeline-entry { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; margin-bottom: 110px; }
+  .timeline-entry:last-child { margin-bottom: 0; }
+  .timeline-head { display: flex; align-items: baseline; gap: 18px; margin-bottom: 18px; }
+  .timeline-year {
+    font-family: var(--font-display);
+    font-size: clamp(2.6rem, 6vw, 4.2rem);
+    color: var(--ghost);
+    line-height: 1;
+  }
+  .timeline-entry h3 { font-size: clamp(1.5rem, 3vw, 2rem); color: var(--ink); margin-bottom: 20px; }
+  .timeline-entry .body p:last-of-type { font-style: italic; color: var(--muted); }
+  .timeline-photo { aspect-ratio: 4/5; }
+
+  /* ---------- Pull quote ---------- */
+  .quote-block {
+    background: var(--blush);
+    border-left: 3px solid var(--tan);
+    padding: 44px 48px;
+    border-radius: 0 8px 8px 0;
+  }
+  .quote-block p {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: clamp(1.1rem, 2.2vw, 1.4rem);
+    color: var(--ink);
+    margin-bottom: 18px;
+  }
+  .quote-cite {
+    font-family: var(--font-sans);
+    font-size: 0.74rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--tan);
+  }
+
+  /* ---------- Architecture / elevation ---------- */
+  .arch-photo { aspect-ratio: 16/8; margin-top: 50px; }
+  .elevation-caption { display: block; margin: 70px 0 20px; }
+  .elevation-photo { aspect-ratio: 21/9; }
+
+  /* ---------- Spec sheet ---------- */
+  .spec-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+  .spec-photo { aspect-ratio: 4/5; }
+  .spec-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .spec-row:first-child { padding-top: 0; }
+  .spec-row .k {
+    font-family: var(--font-sans);
     font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    flex: none;
+    width: 40%;
+  }
+  .spec-row .v { font-family: var(--font-serif); font-size: 1.05rem; text-align: right; }
+
+  /* ---------- Spaces ---------- */
+  .spaces-head { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 50px; align-items: end; margin-bottom: 56px; }
+  .spaces-head h2 { font-size: clamp(2.1rem, 5vw, 3.4rem); }
+  .spaces-head p { font-family: var(--font-serif); color: var(--muted); font-size: 1.05rem; }
+  .suite-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 40px; }
+  .suite-photo { aspect-ratio: 4/3; border-radius: var(--radius-photo) var(--radius-photo) 0 0; }
+  .suite-card { display: flex; flex-direction: column; }
+  .suite-meta {
+    display: flex; align-items: baseline; gap: 10px;
+    margin: 18px 0 14px;
+    font-family: var(--font-sans);
+  }
+  .suite-meta .num { font-family: var(--font-serif); font-weight: 600; font-size: 1.15rem; }
+  .suite-meta .unit { font-size: 0.82rem; color: var(--muted); }
+  .suite-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 6px; }
+  .suite-tags span {
+    font-family: var(--font-sans);
+    font-size: 0.66rem;
     letter-spacing: 0.06em;
     text-transform: uppercase;
-    background: rgba(43,38,34,0.55);
-    color: var(--white);
+    color: var(--muted);
+    background: var(--blush);
+    padding: 7px 11px;
+    border-radius: 3px;
   }
-  .history-text ul { padding-left: 1.15em; margin: 0 0 1em; }
-  .history-text li { margin-bottom: 0.55em; }
+  .spaces-cta { text-align: center; margin-top: 56px; }
 
-  /* ---------- Neighborhood ---------- */
-  .neighborhood { background: var(--dark); color: var(--light); }
-  .neighborhood .eyebrow { color: var(--terracotta); }
-  .neighborhood-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 56px; align-items: start; }
-  .landmark-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
-  .landmark-list li {
-    display: flex; align-items: center; gap: 12px;
-    background: rgba(245,239,228,0.06);
-    border: 1px solid rgba(245,239,228,0.14);
-    border-radius: 14px;
-    padding: 14px 18px;
-    font-size: 0.95rem;
-    transition: background 0.2s ease, transform 0.2s ease;
+  /* ---------- District ---------- */
+  .district-photo { aspect-ratio: 21/8; margin: 46px 0 70px; }
+  .landmark-table { width: 100%; border-collapse: collapse; }
+  .landmark-table thead th {
+    text-align: left;
+    font-family: var(--font-sans);
+    font-size: 0.68rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(250,246,238,0.45);
+    font-weight: 500;
+    padding-bottom: 18px;
+    border-bottom: 1px solid var(--line-dark);
   }
-  .landmark-list li:hover { background: rgba(245,239,228,0.12); transform: translateX(4px); }
-  .landmark-list .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--terracotta); flex: none; }
+  .landmark-table tbody td { padding: 22px 0; border-bottom: 1px solid var(--line-dark); vertical-align: top; }
+  .landmark-table tbody tr:last-child td { border-bottom: none; }
+  .landmark-name { display: flex; align-items: center; gap: 10px; font-family: var(--font-sans); font-weight: 600; font-size: 0.98rem; }
+  .landmark-name svg { flex: none; opacity: 0.6; }
+  .landmark-sig { font-family: var(--font-serif); color: rgba(250,246,238,0.7); }
+  .landmark-dist { font-family: var(--font-sans); font-size: 0.76rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--tan-light); text-align: right; white-space: nowrap; }
+  .landmark-table td:last-child { text-align: right; }
 
-  /* ---------- Available space ---------- */
-  .space { background: var(--light); }
-  .suite-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 28px;
-    margin-top: 40px;
-  }
-  @media (min-width: 1000px) {
-    /* tuned for the 4 default SUITES entries; drop this rule if you add a 5th+ suite */
-    .suite-grid { grid-template-columns: repeat(4, 1fr); }
-  }
-  .suite-card {
-    background: var(--white);
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 10px 28px rgba(43,38,34,0.09);
-    display: flex;
-    flex-direction: column;
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
-  }
-  .suite-card:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(43,38,34,0.16); }
-  .suite-photo {
-    aspect-ratio: 16/10;
-    background: linear-gradient(135deg, var(--light-2), #d9c9ae);
+  .district-info { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 64px; }
+  .info-block { padding: 22px 0; border-top: 1px solid var(--line-dark); }
+  .info-block .label { display: block; margin-bottom: 10px; }
+  .info-block .value { font-family: var(--font-serif); font-size: 1.05rem; color: rgba(250,246,238,0.92); }
+  .info-block .value.mono { font-family: var(--font-sans); letter-spacing: 0.03em; }
+
+  .map-placeholder {
+    margin-top: 26px;
+    aspect-ratio: 21/7;
+    border-radius: var(--radius-photo);
     position: relative;
+    overflow: hidden;
+    background:
+      linear-gradient(0deg, rgba(0,0,0,0.15), transparent),
+      repeating-linear-gradient(90deg, rgba(250,246,238,0.06) 0 1px, transparent 1px 44px),
+      repeating-linear-gradient(0deg, rgba(250,246,238,0.06) 0 1px, transparent 1px 44px),
+      #1c1811;
+    display: flex; align-items: center; justify-content: center;
   }
-  /* PLACEHOLDER: each .suite-photo can be swapped for a real listing photo,
-     e.g. background: url('images/suite-201.jpg') center/cover no-repeat; */
-  .suite-photo svg { position: absolute; inset: 0; width: 100%; height: 100%; }
-  .suite-body { padding: 22px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
-  .suite-body h3 { font-size: 1.25rem; margin-bottom: 0; }
-  .suite-meta { display: flex; gap: 14px; font-size: 0.85rem; color: var(--brick); font-weight: 600; }
-  .suite-body p.desc { font-size: 0.92rem; color: #514a43; flex: 1; }
-  .suite-body .btn { margin-top: 8px; align-self: flex-start; padding: 10px 20px; font-size: 0.85rem; }
+  .map-placeholder svg { width: 34px; height: 34px; color: var(--tan-light); }
 
-  /* ---------- Inquiry form ---------- */
-  .inquiry { background: var(--white); }
-  form.inquiry-form {
-    max-width: 620px;
-    margin: 40px auto 0;
-    display: grid;
-    gap: 18px;
-    background: var(--light);
-    border: 1px solid var(--light-2);
-    border-radius: 24px;
-    padding: 36px;
-    box-shadow: 0 10px 30px rgba(43,38,34,0.06);
+  /* ---------- Leasing ---------- */
+  .leasing-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; }
+  .leasing-copy { background: var(--blush); padding: 80px 60px; display: flex; flex-direction: column; justify-content: center; }
+  .leasing-copy h2 { font-size: clamp(2rem, 4.4vw, 3rem); }
+  .leasing-copy p { color: var(--muted); font-size: 1.05rem; max-width: 420px; }
+  .leasing-form-wrap { background: var(--white); padding: 80px 60px; display: flex; flex-direction: column; justify-content: center; }
+  form.inquiry-form { display: grid; gap: 30px; }
+  .form-row { display: grid; gap: 30px; grid-template-columns: 1fr 1fr; }
+  .field { position: relative; }
+  .field label {
+    display: block;
+    font-family: var(--font-sans);
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 8px;
   }
-  .form-row { display: grid; gap: 18px; grid-template-columns: 1fr 1fr; }
-  label { display: block; font-size: 0.82rem; font-weight: 600; letter-spacing: 0.02em; margin-bottom: 6px; }
   input, select, textarea {
     width: 100%;
-    font-family: var(--font-sans);
-    font-size: 0.95rem;
-    padding: 12px 16px;
-    border: 1px solid #d8cdb8;
-    border-radius: 12px;
-    background: var(--white);
-    color: var(--dark);
+    font-family: var(--font-serif);
+    font-size: 1rem;
+    padding: 8px 0 12px;
+    border: none;
+    border-bottom: 1px solid var(--line);
+    background: transparent;
+    color: var(--ink);
+    border-radius: 0;
   }
-  input:focus, select:focus, textarea:focus { outline: 2px solid var(--terracotta); outline-offset: 1px; }
-  textarea { resize: vertical; min-height: 110px; }
-  .form-note { font-size: 0.8rem; color: #7a7167; }
+  input:focus, select:focus, textarea:focus { outline: none; border-color: var(--tan); }
+  textarea { resize: vertical; min-height: 90px; }
+  select { appearance: none; -webkit-appearance: none; cursor: pointer; }
+  .form-note { font-family: var(--font-sans); font-size: 0.78rem; color: var(--muted); }
 
   /* ---------- Brokers ---------- */
-  .brokers { background: var(--light); }
-  .broker-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-top: 40px; }
+  .broker-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 56px; }
   .broker-card {
-    background: var(--white);
-    border-radius: 20px;
-    padding: 30px;
-    display: flex;
-    gap: 20px;
-    align-items: center;
-    box-shadow: 0 10px 28px rgba(43,38,34,0.09);
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    display: flex; gap: 22px; align-items: center;
+    padding: 32px;
+    border: 1px solid var(--line);
+    border-radius: 4px;
   }
-  .broker-card:hover { transform: translateY(-4px); box-shadow: 0 18px 36px rgba(43,38,34,0.14); }
   .avatar {
-    width: 84px; height: 84px; border-radius: 50%;
-    background: linear-gradient(160deg, var(--brick), var(--terracotta));
+    width: 68px; height: 68px; border-radius: 50%; flex: none;
+    background: linear-gradient(160deg, var(--tan), var(--brick));
     color: var(--white);
     display: flex; align-items: center; justify-content: center;
-    font-family: var(--font-serif); font-size: 1.5rem; font-weight: 700;
-    flex: none;
+    font-family: var(--font-display); font-size: 1.2rem;
   }
-  .broker-info h3 { font-size: 1.1rem; margin-bottom: 2px; }
-  .broker-info .title { font-size: 0.85rem; color: #7a7167; margin-bottom: 10px; }
-  .broker-info a { display: block; font-size: 0.9rem; text-decoration: none; margin-bottom: 3px; }
-  .broker-info a:hover { color: var(--brick); }
+  .broker-info .name { font-family: var(--font-sans); font-weight: 700; font-size: 1.02rem; margin-bottom: 2px; }
+  .broker-info .role { font-family: var(--font-sans); font-size: 0.82rem; color: var(--muted); margin-bottom: 10px; }
+  .broker-info a { display: block; font-family: var(--font-sans); font-size: 0.88rem; text-decoration: none; margin-bottom: 3px; color: var(--ink); }
+  .broker-info a:hover { color: var(--tan); }
 
   /* ---------- Footer ---------- */
-  footer { background: var(--dark); color: var(--light); padding: 56px 0 32px; text-align: center; }
-  footer .logo-placeholder {
-    display: inline-block;
-    font-family: var(--font-serif);
-    font-weight: 700;
-    letter-spacing: 0.03em;
-    border: 1px solid rgba(245,239,228,0.35);
-    padding: 10px 20px;
-    border-radius: 4px;
-    margin-bottom: 22px;
-    font-size: 0.95rem;
+  footer { padding: 90px 0 30px; }
+  .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 50px; padding-bottom: 60px; border-bottom: 1px solid var(--line-dark); }
+  footer .brand { font-family: var(--font-display); font-size: 1.5rem; margin-bottom: 18px; }
+  footer .desc { color: rgba(250,246,238,0.6); font-family: var(--font-serif); max-width: 340px; }
+  footer .col-title { margin-bottom: 18px; }
+  footer .col-links { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+  footer .col-links a, footer .contact-list div {
+    font-family: var(--font-sans);
+    font-size: 0.92rem;
+    color: rgba(250,246,238,0.82);
+    text-decoration: none;
   }
-  footer .address { font-size: 0.95rem; margin-bottom: 6px; }
-  footer .landmark-note { font-size: 0.78rem; color: var(--terracotta); letter-spacing: 0.03em; }
-  footer .fine-print { margin-top: 26px; font-size: 0.72rem; color: #a89f92; }
+  footer .col-links a:hover { color: var(--tan-light); }
+  footer .contact-list { display: grid; gap: 12px; }
+  .footer-bottom {
+    display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 14px;
+    padding-top: 28px;
+    font-family: var(--font-sans);
+    font-size: 0.72rem;
+    letter-spacing: 0.05em;
+    color: rgba(250,246,238,0.4);
+  }
+  .footer-bottom .right { display: flex; gap: 24px; }
+  .footer-bottom .right a { color: rgba(250,246,238,0.5); text-decoration: none; }
+  .footer-bottom .right a:hover { color: var(--tan-light); }
 
-  @media (max-width: 860px) {
-    section { padding: 64px 0; }
-    .history-grid, .neighborhood-grid, .broker-grid { grid-template-columns: 1fr; }
-    .history-photo { order: -1; max-width: 420px; margin: 0 auto; }
-    .form-row { grid-template-columns: 1fr; }
-    .broker-card { flex-direction: column; text-align: center; }
+  @media (max-width: 900px) {
+    section { padding: 72px 0; }
+    .timeline-entry, .spec-grid, .spaces-head, .leasing-grid, .broker-grid, .footer-grid { grid-template-columns: 1fr; }
+    .district-info { grid-template-columns: 1fr; }
+    .timeline-photo { order: -1; }
+    .leasing-copy, .leasing-form-wrap { padding: 56px 28px; }
+    .spec-photo { order: -1; }
+    .landmark-table, .landmark-table tbody, .landmark-table tr, .landmark-table td { display: block; width: 100%; }
+    .landmark-table thead { display: none; }
+    .landmark-table tr { padding: 18px 0; border-bottom: 1px solid var(--line-dark); }
+    .landmark-table tbody td { border-bottom: none; padding: 3px 0; text-align: left !important; }
+    .landmark-sig { font-size: 0.92rem; }
+    .landmark-dist { margin-top: 4px; }
   }
 </style>
 
+<!-- ============================================================ -->
+<!-- NAV -->
+<!-- ============================================================ -->
 <nav class="nav" id="nav">
-  <a class="brand" href="#hero">Steinmeyer Building</a>
-  <ul class="nav-links">
-    <li><a href="#history">History</a></li>
-    <li><a href="#neighborhood">Neighborhood</a></li>
-    <li><a href="#space">Space</a></li>
-    <li><a href="#brokers">Contact</a></li>
-  </ul>
-  <a class="btn btn-primary" href="#inquiry">Inquire</a>
+  <div class="container nav-inner">
+    <a class="brand" href="#hero">STEINMEYER</a>
+    <ul class="nav-links">
+      <li><a href="#history">History</a></li>
+      <li><a href="#architecture">Architecture</a></li>
+      <li><a href="#spaces">Spaces</a></li>
+      <li><a href="#district">District</a></li>
+      <li><a href="#leasing">Leasing</a></li>
+    </ul>
+    <a class="btn btn-ink" href="#leasing">Inquire</a>
+  </div>
 </nav>
 
-<a class="btn btn-primary float-cta" id="float-cta" href="#inquiry">Inquire Now</a>
-
 <!-- ============================================================ -->
-<!-- 1. HERO -->
+<!-- HERO -->
 <!-- ============================================================ -->
 <section class="hero" id="hero">
-  <div style="position:relative;">
-    <span class="eyebrow-pill"><span class="pulse-dot" aria-hidden="true"></span>Now Leasing</span>
-    <h1><span data-copy="heroTitlePrefix"></span> <span class="accent" data-copy="heroTitleAccent"></span></h1>
-    <p class="sub" data-copy="heroSubtitle">205 W Highland Ave, Milwaukee, WI &middot; Est. 1893</p>
-    <span class="badge">Ogden &amp; Company &middot; Leasing Agents</span>
-  </div>
-  <div class="scroll-cue" aria-hidden="true"></div>
-</section>
-
-<!-- ============================================================ -->
-<!-- STAT STRIP -->
-<!-- ============================================================ -->
-<section class="stat-strip">
-  <div class="container reveal-stagger" id="stat-strip"></div>
-</section>
-
-<!-- ============================================================ -->
-<!-- 2. BUILDING HISTORY -->
-<!-- ============================================================ -->
-<section class="history texture" id="history">
-  <div class="container history-grid reveal">
-    <div class="history-text">
-      <span class="eyebrow">Building History</span>
-      <h2>A Milwaukee Landmark Since 1893</h2>
-      <div data-copy="historyParagraphs"></div>
-    </div>
-    <div class="history-photo" aria-label="Placeholder for a historic archival photo of the Steinmeyer Building">
-      <svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" role="img" aria-hidden="true">
-        <rect width="400" height="500" fill="#c7b797"/>
-        <g fill="none" stroke="#5c5346" stroke-width="3" opacity="0.55">
-          <rect x="30" y="60" width="340" height="400"/>
-          <line x1="30" y1="150" x2="370" y2="150"/>
-          <line x1="30" y1="240" x2="370" y2="240"/>
-          <line x1="30" y1="330" x2="370" y2="330"/>
-          <line x1="30" y1="420" x2="370" y2="420"/>
-          <line x1="115" y1="60" x2="115" y2="460"/>
-          <line x1="200" y1="60" x2="200" y2="460"/>
-          <line x1="285" y1="60" x2="285" y2="460"/>
-        </g>
-        <g fill="#5c5346" opacity="0.45">
-          <path d="M55 150 q17 -30 34 0 v70 h-34 z"/>
-          <path d="M140 150 q17 -30 34 0 v70 h-34 z"/>
-          <path d="M225 150 q17 -30 34 0 v70 h-34 z"/>
-          <path d="M310 150 q17 -30 34 0 v70 h-34 z"/>
-        </g>
-      </svg>
-      <span class="caption">Archival photo placeholder &mdash; swap for real 1890s&ndash;1940s image</span>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================ -->
-<!-- 3. NEIGHBORHOOD -->
-<!-- ============================================================ -->
-<section class="neighborhood texture" id="neighborhood">
-  <div class="container neighborhood-grid reveal">
-    <div>
-      <span class="eyebrow">The Neighborhood</span>
-      <h2>Old World Third Street</h2>
-      <p data-copy="neighborhoodIntro"></p>
-      <p data-copy="neighborhoodPitch"></p>
-      <a class="btn btn-outline" href="#space" style="color:var(--light);margin-top:8px;">View Available Space</a>
-    </div>
-    <div>
-      <ul class="landmark-list reveal-stagger" id="landmark-list"></ul>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================ -->
-<!-- 4. AVAILABLE OFFICE SPACE -->
-<!-- ============================================================ -->
-<section class="space" id="space">
-  <div class="container reveal">
-    <div class="section-intro">
-      <span class="eyebrow">Availability</span>
-      <h2>Available Office Space</h2>
-      <p>A handful of the building's original warehouse floors have been reimagined as light-filled offices &mdash; exposed brick, tall windows, and character you can't build new.</p>
-    </div>
-    <div class="suite-grid reveal-stagger" id="suite-grid"></div>
-  </div>
-</section>
-
-<!-- ============================================================ -->
-<!-- 5. INQUIRY FORM -->
-<!-- ============================================================ -->
-<section class="inquiry texture" id="inquiry">
-  <div class="container reveal">
-    <div class="section-intro">
-      <span class="eyebrow">Get in Touch</span>
-      <h2>Inquire About a Suite</h2>
-    </div>
-    <!-- No backend wired up yet: submitting opens the visitor's email client via a mailto: link.
-         To switch to Formspree or Netlify Forms later: give the form an action="" URL + method="POST",
-         remove the wireForm() preventDefault/mailto logic in the <script> below, and (for Netlify)
-         add a data-netlify="true" attribute to the <form> tag. -->
-    <form class="inquiry-form" id="inquiry-form">
-      <div class="form-row">
-        <div>
-          <label for="f-name">Name</label>
-          <input type="text" id="f-name" name="name" required />
-        </div>
-        <div>
-          <label for="f-email">Email</label>
-          <input type="email" id="f-email" name="email" required />
-        </div>
+  <div class="hero-inner">
+    <h1 class="hero-word left" data-copy="heroWord1">STEIN</h1>
+    <h1 class="hero-word right" data-copy="heroWord2">MEYER</h1>
+    <div class="hero-meta">
+      <div class="hero-caption" data-copy="heroCaption"></div>
+      <p class="hero-desc" data-copy="heroDesc"></p>
+      <!-- Coordinates for 205 W Highland Ave are an approximate estimate for
+           this corner of Old World Third St — verify precisely before using
+           for anything beyond decorative flavor text. -->
+      <div class="hero-coords" data-copy="heroCoords"></div>
+      <div class="hero-actions">
+        <a class="link-arrow" href="#history">Step Into 1893 ⌄</a>
+        <a class="btn btn-tan" href="#leasing">Secure Your Space</a>
       </div>
-      <div class="form-row">
-        <div>
-          <label for="f-phone">Phone</label>
-          <input type="tel" id="f-phone" name="phone" />
-        </div>
-        <div>
-          <label for="f-company">Company (optional)</label>
-          <input type="text" id="f-company" name="company" />
-        </div>
-      </div>
-      <div>
-        <label for="f-suite">Suite of Interest</label>
-        <select id="f-suite" name="suite"></select>
-      </div>
-      <div>
-        <label for="f-message">Message</label>
-        <textarea id="f-message" name="message" placeholder="Tell us a bit about your space needs..."></textarea>
-      </div>
-      <button type="submit" class="btn btn-primary">Send Inquiry</button>
-      <p class="form-note">Submitting opens an email to our leasing team with your details pre-filled.</p>
-    </form>
-  </div>
-</section>
-
-<!-- ============================================================ -->
-<!-- 6. CONTACT A BROKER -->
-<!-- ============================================================ -->
-<section class="brokers" id="brokers">
-  <div class="container reveal">
-    <div class="section-intro">
-      <span class="eyebrow">Leasing Contacts</span>
-      <h2>Contact a Broker</h2>
     </div>
-    <div class="broker-grid reveal-stagger" id="broker-grid"></div>
   </div>
 </section>
 
 <!-- ============================================================ -->
-<!-- 7. FOOTER -->
+<!-- HISTORY / TIMELINE -->
 <!-- ============================================================ -->
-<footer>
+<section id="history">
   <div class="container">
-    <!-- PLACEHOLDER: replace this text wordmark with an <img> of the Ogden & Company logo -->
-    <div class="logo-placeholder">Ogden &amp; Company</div>
-    <p class="address">The Steinmeyer Building &middot; 205 W Highland Ave, Milwaukee, WI 53203</p>
-    <p class="landmark-note">Designated Milwaukee Landmark, 1974 &middot; National Register of Historic Places, 1987</p>
-    <p class="fine-print">&copy; <span id="year"></span> Ogden &amp; Company. Listing information deemed reliable but not guaranteed.</p>
+    <div class="section-header reveal">
+      <div class="rule-label"><span class="rule"></span><span class="label">The Layers of Time</span><span class="rule"></span></div>
+      <h2>130 Years of<span class="tan">Commercial Legacy</span></h2>
+    </div>
+    <div id="timeline"></div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- PULL QUOTE -->
+<!-- ============================================================ -->
+<section style="padding-top:0;">
+  <div class="container">
+    <div class="quote-block reveal">
+      <p data-copy="quoteText"></p>
+      <div class="quote-cite">— City of Milwaukee Landmarks Commission, 1974</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- ARCHITECTURE -->
+<!-- ============================================================ -->
+<section class="on-blush" id="architecture">
+  <div class="container reveal">
+    <span class="label">Architectural Identity</span>
+    <h2 style="margin-top:18px; max-width:680px;">The Ferry &amp; Clas Masterwork</h2>
+    <p class="muted-text" style="max-width:640px; font-size:1.05rem;" data-copy="archIntro"></p>
+    <div class="photo arch-photo">
+      <div class="photo-icon" aria-hidden="true">
+        <svg viewBox="0 0 100 100" fill="none" stroke="#fff" stroke-width="2"><path d="M20 85 V40 L50 15 L80 40 V85" /><path d="M35 85 V55 H65 V85" /></svg>
+      </div>
+      <span class="photo-caption">Façade Detail — Red Pressed Brick &amp; Terra Cotta</span>
+    </div>
+    <span class="label elevation-caption">Architectural Elevation — Reference Sketch</span>
+    <div class="photo tone-graphite elevation-photo">
+      <div class="photo-icon" aria-hidden="true">
+        <svg viewBox="0 0 200 80" fill="none" stroke="#fff" stroke-width="1.5">
+          <path d="M10 75 V20 H190 V75" />
+          <path d="M30 75 V35 M60 75 V35 M90 75 V35 M120 75 V35 M150 75 V35 M170 75 V35" />
+          <path d="M20 20 L100 5 L180 20" />
+        </svg>
+      </div>
+      <span class="photo-caption">Elevation Sketch Placeholder — Highland Ave Façade</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- SPEC SHEET -->
+<!-- ============================================================ -->
+<section>
+  <div class="container spec-grid reveal">
+    <div class="photo spec-photo">
+      <div class="photo-icon" aria-hidden="true">
+        <svg viewBox="0 0 100 100" fill="none" stroke="#fff" stroke-width="2"><rect x="15" y="15" width="70" height="70" /><path d="M15 40 H85 M40 15 V85" /></svg>
+      </div>
+      <span class="photo-caption">Arched Window Detail</span>
+    </div>
+    <div id="spec-sheet"></div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- AVAILABLE SPACES -->
+<!-- ============================================================ -->
+<section class="on-blush" id="spaces">
+  <div class="container">
+    <div class="spaces-head reveal">
+      <div>
+        <span class="label">Available Spaces</span>
+        <h2 style="margin-top:18px;">The Architectural Canvas</h2>
+      </div>
+      <p data-copy="spacesIntro"></p>
+    </div>
+    <div class="suite-grid" id="suite-grid"></div>
+    <div class="spaces-cta">
+      <a class="link-arrow" href="#leasing">Request a Showing →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- DISTRICT -->
+<!-- ============================================================ -->
+<section class="on-dark" id="district">
+  <div class="container reveal">
+    <span class="label">The Neighborhood</span>
+    <h2 style="margin-top:18px; max-width:680px; color:var(--cream);">Old World Third Street</h2>
+    <p class="muted-text" style="max-width:640px; font-size:1.05rem;" data-copy="districtIntro"></p>
+    <div class="photo tone-riverwalk district-photo">
+      <div class="photo-icon" aria-hidden="true">
+        <svg viewBox="0 0 200 80" fill="none" stroke="#fff" stroke-width="1.5"><path d="M0 60 Q50 40 100 55 T200 50" /><rect x="20" y="20" width="18" height="35" /><rect x="55" y="10" width="18" height="45" /><rect x="140" y="18" width="18" height="37" /><rect x="170" y="25" width="18" height="30" /></svg>
+      </div>
+      <span class="photo-caption">Milwaukee Riverwalk &amp; Old World Third Street</span>
+    </div>
+
+    <table class="landmark-table">
+      <thead>
+        <tr><th>Landmark</th><th>Significance</th><th>Distance</th></tr>
+      </thead>
+      <tbody id="landmark-table-body"></tbody>
+    </table>
+
+    <div class="district-info" id="district-info"></div>
+
+    <span class="label" style="display:block; margin-top:60px;">Charted on the Map</span>
+    <div class="map-placeholder" aria-label="Map placeholder — embed a real Google/Mapbox map here">
+      <!-- PLACEHOLDER: replace with a real embed, e.g.
+           <iframe src="https://www.google.com/maps/embed?..." style="width:100%;height:100%;border:0;"></iframe>
+           No network access in this sandbox to generate/verify a real embed URL. -->
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z"/></svg>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- LEASING / INQUIRY -->
+<!-- ============================================================ -->
+<section id="leasing" style="padding:0;">
+  <div class="leasing-grid">
+    <div class="leasing-copy reveal">
+      <span class="label">Leasing Inquiries</span>
+      <h2 style="margin-top:18px;">Secure Your Place in History</h2>
+      <p data-copy="leasingIntro"></p>
+    </div>
+    <div class="leasing-form-wrap reveal">
+      <span class="label" style="margin-bottom:26px; display:block;">Inquiry Form</span>
+      <!-- No backend wired up yet: submitting opens the visitor's email client via a mailto: link.
+           To switch to Formspree or Netlify Forms later: give the form an action="" URL + method="POST",
+           remove the wireForm() preventDefault/mailto logic in the <script> below, and (for Netlify)
+           add a data-netlify="true" attribute to the <form> tag. -->
+      <form class="inquiry-form" id="inquiry-form">
+        <div class="form-row">
+          <div class="field"><label for="f-name">Full Name</label><input type="text" id="f-name" name="name" required /></div>
+          <div class="field"><label for="f-company">Company</label><input type="text" id="f-company" name="company" /></div>
+        </div>
+        <div class="form-row">
+          <div class="field"><label for="f-email">Email Address</label><input type="email" id="f-email" name="email" required /></div>
+          <div class="field"><label for="f-phone">Phone</label><input type="tel" id="f-phone" name="phone" /></div>
+        </div>
+        <div class="field">
+          <label for="f-suite">I'm interested in&hellip;</label>
+          <select id="f-suite" name="suite"></select>
+        </div>
+        <div class="field">
+          <label for="f-message">Message</label>
+          <textarea id="f-message" name="message" placeholder="Tell us a bit about your space needs..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-ink" style="justify-content:center;">Send Inquiry</button>
+        <p class="form-note">Submitting opens an email to our leasing team with your details pre-filled.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- CONTACT A BROKER -->
+<!-- ============================================================ -->
+<section>
+  <div class="container reveal">
+    <span class="label">Leasing Contacts</span>
+    <h2 style="margin-top:18px;">Contact a Broker</h2>
+    <div class="broker-grid" id="broker-grid"></div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- FOOTER -->
+<!-- ============================================================ -->
+<footer class="on-dark">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="brand">STEINMEYER</div>
+        <p class="desc" data-copy="footerDesc"></p>
+      </div>
+      <div>
+        <span class="label col-title">Navigate</span>
+        <ul class="col-links">
+          <li><a href="#history">History</a></li>
+          <li><a href="#architecture">Architecture</a></li>
+          <li><a href="#spaces">Spaces</a></li>
+          <li><a href="#district">District</a></li>
+          <li><a href="#leasing">Leasing</a></li>
+        </ul>
+      </div>
+      <div>
+        <span class="label col-title">Contact</span>
+        <div class="contact-list">
+          <div>205 West Highland Avenue</div>
+          <div>Milwaukee, WI 53203</div>
+          <div><!-- PLACEHOLDER: replace with a real leasing phone number -->(414) 555-1893</div>
+          <div>leasing@steinmeyerbuilding.com</div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div id="footer-coords"></div>
+      <div id="footer-copyright"></div>
+      <div class="right"><a href="#">Privacy</a><a href="#">Terms</a><a href="#hero">Back to Top</a></div>
+    </div>
   </div>
 </footer>
 
 <script>
   /* ============================================================
      EDITABLE CONTENT
-     Update copy, suites, brokers, and nearby landmarks here without
-     touching any markup or CSS below.
+     Update copy, timeline, spec sheet, suites, landmarks, and
+     brokers here without touching markup or CSS.
      ============================================================ */
 
   const COPY = {
-    heroTitlePrefix: "The",
-    heroTitleAccent: "Steinmeyer Building",
-    heroSubtitle: "205 W Highland Ave, Milwaukee, WI · Est. 1893",
-    historyParagraphs: [
-      "Rising five stories over the corner of Old World Third Street and Highland Avenue, the Steinmeyer Building has anchored this stretch of the Milwaukee Riverwalk since 1893. Architects G. B. Ferry and A. C. Clas designed it in the Romanesque Revival Commercial style, with the north three bays and the full Highland Avenue façade completed first and two additional bays along Third Street added in 1898.",
-      "Where most of its neighbors along Old World Third Street are clad in pale cream city brick, the Steinmeyer Building stands out in deep red pressed brick trimmed with terra cotta — a deliberate, striking choice that still sets it apart today.",
-      "It was built as the headquarters of William Steinmeyer's wholesale and retail grocery business, then the largest of its kind in Milwaukee, serving as both storefront and warehouse. Steinmeyer died just before construction wrapped, and the business passed to his son-in-law Emil Ott and his brother Charles, who kept it running on a cash-only, next-day-delivery model well ahead of its time — until national grocery chains and the rise of the automobile finally closed its doors in 1940.",
-      "The building earned City of Milwaukee Landmark status in 1974 and, in 1987, was listed on the National Register of Historic Places as a contributing property of the Old World Third Street Historic District — the last largely intact remnant of the city's original German retail district.",
-      "Today the ground floor that once sold groceries is retail space, and the upper warehouse floors have become offices. Wisconsin Cheese Mart has called the building home since 1976 and still operates from the storefront."
-    ],
-    neighborhoodIntro: "The Steinmeyer Building sits in the heart of Westown, at Old World Third Street and Highland Avenue — the best-preserved fragment of Milwaukee's original German retail district, part of the Kilbourntown plat Byron Kilbourn laid out in 1835. Some of the buildings on this block date to 1855, and by the late 1800s the corridor was lined with German immigrant-owned wholesale houses, shops, and light manufacturing.",
-    neighborhoodPitch: "For tenants, that history translates into a walkable, unmistakably distinct address: exposed brick and century-old craftsmanship, direct access to the Milwaukee Riverwalk and the Highland Avenue pedestrian bridge, and downtown Milwaukee at your doorstep — all a world away from a glass-and-drywall office park."
+    heroWord1: "STEIN",
+    heroWord2: "MEYER",
+    heroCaption: "Est. 1893 · Milwaukee Landmark · Old World Third Street",
+    heroDesc: "A Romanesque Revival landmark by Ferry &amp; Clas, standing at the corner of Old World Third Street and Highland Avenue since 1893.",
+    heroCoords: "43°02.3′N, 87°54.9′W — 205 West Highland Avenue, Milwaukee, WI 53203",
+    quoteText: "“Designed by G. B. Ferry and A. C. Clas, erected in 1893 for the wholesale and retail grocery firm founded by William Steinmeyer, and designated a Milwaukee Landmark in 1974 in recognition of its historical and architectural significance to the community.”",
+    archIntro: "An example of the Romanesque Revival Commercial style, the Steinmeyer Building represents late-19th-century Milwaukee commercial design at its most confident — heavy masonry, deep-set arched windows, and a deliberate departure from the pale cream city brick common throughout Old World Third Street.",
+    spacesIntro: "Each suite is a unique expression of 1890s craftsmanship — original brick, soaring ceilings, and arched windows that frame Old World Third Street and the Milwaukee Riverwalk.",
+    districtIntro: "The Steinmeyer Building sits in the heart of Westown, at Old World Third Street and Highland Avenue — the best-preserved fragment of Milwaukee's original German retail district, part of the Kilbourntown plat Byron Kilbourn laid out in 1835. For tenants, that history means a walkable, unmistakably distinct address: exposed brick, direct access to the Riverwalk, and downtown Milwaukee at the doorstep.",
+    leasingIntro: "Whether you're seeking a distinguished office address, a character-rich retail space, or a creative studio wrapped in over 130 years of Milwaukee heritage — the Steinmeyer Building has a space that matches your ambition.",
+    footerDesc: "A Milwaukee Landmark since 1974. Designed by G. B. Ferry and A. C. Clas in 1893 for the wholesale and retail grocery firm founded by William Steinmeyer. Listed on the National Register of Historic Places as part of the Old World Third Street Historic District."
   };
 
-  const NEARBY = [
-    "Mader's Restaurant — half-timbered German landmark, half a block away",
-    "Usinger's Famous Sausage — est. 1880, across the street",
-    "Turner Hall — historic gathering hall and music venue",
-    "Pere Marquette Historic Site — riverside park",
-    "Milwaukee Riverwalk — direct access from the building",
-    "Highland Ave pedestrian bridge — connects straight into downtown"
-  ];
-
-  const SUITES = [
+  const TIMELINE = [
     {
-      number: "Suite 201",
-      sqft: 1450,
-      rate: "Contact for pricing",
-      description: "Second-floor corner suite with exposed brick, original tall arched windows facing Highland Ave, and refinished hardwood floors."
+      year: "1893",
+      label: "The Founding",
+      title: "A Grocery Empire Rises",
+      body: [
+        "William Steinmeyer commissions architects George B. Ferry and Alfred C. Clas to design a wholesale and retail grocery headquarters at the corner of Old World Third Street and Highland Avenue. The first phase — the entire Highland Avenue façade and three northern bays — rises in the Romanesque Revival Commercial style, clad in deep red pressed brick trimmed with terra cotta.",
+        "Where most of its Old World Third Street neighbors favor pale cream city brick, Steinmeyer's warm red brick was a deliberate departure — a statement that still sets the building apart today."
+      ],
+      photoSide: "right",
+      photoLabel: "Archive Placeholder — Grocery Warehouse, c. 1893"
     },
     {
-      number: "Suite 305",
-      sqft: 2100,
-      rate: "Contact for pricing",
-      description: "Open third-floor floor plate with river views, exposed timber ceiling, and a private conference room."
+      year: "1898",
+      label: "The Expansion",
+      title: "The Southern Addition",
+      body: [
+        "Steinmeyer's growing grocery business demands more room. Two additional bays are added along Old World Third Street, seamlessly continuing Ferry & Clas's original design language. The expanded building now occupies the full corner lot, five stories tall, serving as both storefront and warehouse.",
+        "After Steinmeyer's death just before completion, the business passed to his son-in-law Emil Ott and his brother Charles, who ran it on a cash-only, next-day-delivery model well ahead of its time."
+      ],
+      photoSide: "left",
+      photoLabel: "Archive Placeholder — 1898 Addition Detail"
     },
     {
-      number: "Suite 402",
-      sqft: 980,
-      rate: "Contact for pricing",
-      description: "Cozy fourth-floor suite, ideal for a small team, with skylights and a kitchenette."
-    },
-    {
-      number: "Suite 501",
-      sqft: 3200,
-      rate: "Contact for pricing",
-      description: "Full fifth-floor suite spanning the building's width, with panoramic Riverwalk and skyline views."
+      year: "Today",
+      label: "The Renaissance",
+      title: "Heritage Meets the Modern Workplace",
+      body: [
+        "The ground floor once stocked with grocery goods is now retail space — home to Wisconsin Cheese Mart since 1976. The upper warehouse floors have been reimagined as offices, with original brick, tall arched windows, and soaring ceilings framing a distinctly modern workplace.",
+        "Designated a Milwaukee Landmark in 1974 and listed on the National Register of Historic Places in 1987, the Steinmeyer Building endures as proof that the best architecture outlasts its original purpose."
+      ],
+      photoSide: "left",
+      photoLabel: "Placeholder — Office Suite Interior"
     }
   ];
 
-  const STATS = [
-    { num: "1893", label: "Year Built" },
-    { num: "5", label: "Stories" },
-    { num: "1974", label: "Milwaukee Landmark" },
-    { num: "1987", label: "National Register" }
+  const SPEC = [
+    ["Architects", "G. B. Ferry &amp; A. C. Clas"],
+    ["Style", "Romanesque Revival Commercial"],
+    ["Erected", "1893 / Expanded 1898"],
+    ["Material", "Red Pressed Brick &amp; Terra Cotta"],
+    ["Stories", "Five"],
+    ["Landmark Status", "1974, City of Milwaukee"],
+    ["National Register", "Old World 3rd St. Historic District, 1987"],
+    ["Location", "205 W Highland Ave, Milwaukee"]
+  ];
+
+  const SUITES = [
+    { number: "Suite 201", sqft: 1450, ceiling: "12 ft", tags: ["Exposed Brick", "Arched Windows", "Natural Light", "Highland Ave Views"] },
+    { number: "Suite 305", sqft: 2100, ceiling: "14 ft", tags: ["River Views", "Timber Ceiling", "Open Plan", "Conference Room"] },
+    { number: "Suite 402", sqft: 980, ceiling: "10 ft", tags: ["Skylights", "Kitchenette", "Corner Position", "Small Footprint"] },
+    { number: "Suite 501", sqft: 3200, ceiling: "12 ft", tags: ["Full Floor", "Skyline Views", "Private Entrance", "Reception Area"] }
+  ];
+
+  const LANDMARKS = [
+    { name: "Mader's Restaurant", sig: "Half-timbered German landmark restaurant", dist: "Half a block away" },
+    { name: "Usinger's Famous Sausage", sig: "Milwaukee sausage maker, est. 1880", dist: "Across the street" },
+    { name: "Turner Hall", sig: "Historic gathering hall and music venue", dist: "Short walk" },
+    { name: "Pere Marquette Historic Site", sig: "Riverside park along the Milwaukee River", dist: "Short walk" },
+    { name: "Milwaukee Riverwalk", sig: "Direct access from the building", dist: "At the doorstep" },
+    { name: "Highland Ave Pedestrian Bridge", sig: "Connects straight into downtown", dist: "At the doorstep" }
+  ];
+
+  const DISTRICT_INFO = [
+    { label: "Region", value: "Southeast Wisconsin · Milwaukee" },
+    { label: "District", value: "Westown · Old World Third St. Historic District" },
+    { label: "Coordinates", value: "43°02.3′N, 87°54.9′W", mono: true }
   ];
 
   const BROKERS = [
@@ -713,21 +833,17 @@
      RENDER LOGIC — no need to edit below this line
      ============================================================ */
 
-  function initials(name) {
-    return name.split(" ").map(function (p) { return p[0]; }).join("").toUpperCase();
+  function photoBlock(className, label) {
+    return (
+      '<div class="photo ' + className + '">' +
+      '<div class="photo-icon" aria-hidden="true"><svg viewBox="0 0 100 100" fill="none" stroke="#fff" stroke-width="2"><rect x="18" y="18" width="64" height="64" rx="2"/><circle cx="38" cy="40" r="7"/><path d="M18 70 L40 50 L58 64 L82 44 V82 H18 Z"/></svg></div>' +
+      '<span class="photo-caption">' + label + "</span>" +
+      "</div>"
+    );
   }
 
-  function suitePhotoSvg(seed) {
-    // Generic interior-style placeholder graphic (window + floor line), swap
-    // the parent .suite-photo background for a real photo when available.
-    var hue = seed % 2 === 0 ? "#e4d3ad" : "#dcc79c";
-    return '<svg viewBox="0 0 400 250" preserveAspectRatio="xMidYMid slice" role="img" aria-hidden="true">' +
-      '<rect width="400" height="250" fill="' + hue + '"/>' +
-      '<rect x="40" y="30" width="130" height="150" fill="#f5efe4" opacity="0.55"/>' +
-      '<line x1="105" y1="30" x2="105" y2="180" stroke="#9c8b68" stroke-width="3"/>' +
-      '<line x1="40" y1="105" x2="170" y2="105" stroke="#9c8b68" stroke-width="3"/>' +
-      '<line x1="0" y1="210" x2="400" y2="210" stroke="#9c8b68" stroke-width="2" opacity="0.6"/>' +
-      '</svg>';
+  function initials(name) {
+    return name.split(" ").map(function (p) { return p[0]; }).join("").toUpperCase();
   }
 
   function renderCopy() {
@@ -735,40 +851,47 @@
       var key = el.getAttribute("data-copy");
       var val = COPY[key];
       if (val == null) return;
-      if (Array.isArray(val)) {
-        el.innerHTML = val.map(function (p) { return "<p>" + p + "</p>"; }).join("");
-      } else {
-        el.textContent = val;
-      }
+      el.innerHTML = val;
     });
   }
 
-  function renderStats() {
-    var strip = document.getElementById("stat-strip");
-    strip.innerHTML = STATS.map(function (s) {
-      return '<div class="stat"><div class="num">' + s.num + '</div><div class="label">' + s.label + "</div></div>";
+  function renderTimeline() {
+    var wrap = document.getElementById("timeline");
+    wrap.innerHTML = TIMELINE.map(function (t) {
+      var textCol =
+        '<div class="reveal">' +
+        '<div class="timeline-head"><span class="timeline-year">' + t.year + '</span><span class="label">' + t.label + "</span></div>" +
+        "<h3>" + t.title + "</h3>" +
+        '<div class="body">' + t.body.map(function (p) { return "<p>" + p + "</p>"; }).join("") + "</div>" +
+        "</div>";
+      var photoCol = photoBlock("reveal timeline-photo", t.photoLabel);
+      return (
+        '<div class="timeline-entry ' + (t.photoSide === "left" ? "photo-left" : "") + '">' +
+        (t.photoSide === "left" ? photoCol + textCol : textCol + photoCol) +
+        "</div>"
+      );
     }).join("");
   }
 
-  function renderNearby() {
-    var list = document.getElementById("landmark-list");
-    list.innerHTML = NEARBY.map(function (item) {
-      return '<li><span class="dot" aria-hidden="true"></span>' + item + "</li>";
+  function renderSpec() {
+    var wrap = document.getElementById("spec-sheet");
+    wrap.innerHTML = SPEC.map(function (row) {
+      return '<div class="spec-row"><span class="k">' + row[0] + '</span><span class="v">' + row[1] + "</span></div>";
     }).join("");
   }
 
   function renderSuites() {
     var grid = document.getElementById("suite-grid");
-    grid.innerHTML = SUITES.map(function (s, i) {
+    grid.innerHTML = SUITES.map(function (s) {
       return (
         '<div class="suite-card">' +
-        '<div class="suite-photo">' + suitePhotoSvg(i) + "</div>" +
-        '<div class="suite-body">' +
-        "<h3>" + s.number + "</h3>" +
-        '<div class="suite-meta"><span>' + s.sqft.toLocaleString() + " SF</span><span>" + s.rate + "</span></div>" +
-        '<p class="desc">' + s.description + "</p>" +
-        '<button type="button" class="btn btn-outline" data-inquire="' + s.number + '">Inquire</button>' +
-        "</div></div>"
+        '<div class="photo suite-photo">' +
+        '<div class="photo-icon" aria-hidden="true"><svg viewBox="0 0 100 100" fill="none" stroke="#fff" stroke-width="2"><rect x="15" y="30" width="70" height="55"/><path d="M15 30 L50 10 L85 30"/><path d="M50 85 V55 H65 V85"/></svg></div>' +
+        '<span class="photo-caption">' + s.number + " Interior Placeholder</span>" +
+        "</div>" +
+        '<div class="suite-meta"><span class="num">' + s.number + '</span><span class="unit">' + s.sqft.toLocaleString() + " SF &middot; " + s.ceiling + " ceilings</span></div>" +
+        '<div class="suite-tags">' + s.tags.map(function (t) { return "<span>" + t + "</span>"; }).join("") + "</div>" +
+        "</div>"
       );
     }).join("");
 
@@ -776,14 +899,25 @@
     select.innerHTML =
       '<option value="">General Inquiry</option>' +
       SUITES.map(function (s) { return '<option value="' + s.number + '">' + s.number + " (" + s.sqft.toLocaleString() + " SF)</option>"; }).join("");
+  }
 
-    grid.querySelectorAll("[data-inquire]").forEach(function (btn) {
-      btn.addEventListener("click", function () {
-        select.value = btn.getAttribute("data-inquire");
-        document.getElementById("inquiry").scrollIntoView({ behavior: "smooth" });
-        document.getElementById("f-name").focus({ preventScroll: true });
-      });
-    });
+  function renderLandmarks() {
+    var body = document.getElementById("landmark-table-body");
+    var pin = '<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z"/></svg>';
+    body.innerHTML = LANDMARKS.map(function (l) {
+      return (
+        "<tr><td><div class=\"landmark-name\">" + pin + l.name + "</div></td>" +
+        '<td class="landmark-sig">' + l.sig + "</td>" +
+        '<td class="landmark-dist">' + l.dist + "</td></tr>"
+      );
+    }).join("");
+  }
+
+  function renderDistrictInfo() {
+    var wrap = document.getElementById("district-info");
+    wrap.innerHTML = DISTRICT_INFO.map(function (d) {
+      return '<div class="info-block"><span class="label">' + d.label + '</span><div class="value' + (d.mono ? " mono" : "") + '">' + d.value + "</div></div>";
+    }).join("");
   }
 
   function renderBrokers() {
@@ -793,13 +927,19 @@
         '<div class="broker-card">' +
         '<div class="avatar">' + initials(b.name) + "</div>" +
         '<div class="broker-info">' +
-        "<h3>" + b.name + "</h3>" +
-        '<div class="title">' + b.title + "</div>" +
+        '<div class="name">' + b.name + "</div>" +
+        '<div class="role">' + b.title + "</div>" +
         '<a href="tel:' + b.phone.replace(/[^0-9+]/g, "") + '">' + b.phone + "</a>" +
         '<a href="mailto:' + b.email + '">' + b.email + "</a>" +
         "</div></div>"
       );
     }).join("");
+  }
+
+  function renderFooterBits() {
+    document.getElementById("footer-coords").textContent = "43°02.3′N, 87°54.9′W";
+    document.getElementById("footer-copyright").textContent =
+      "© " + new Date().getFullYear() + " The Steinmeyer Building · All Rights Reserved";
   }
 
   function wireForm() {
@@ -821,12 +961,12 @@
       var body = lines.join("\n");
       // No backend yet: routes through the visitor's email client.
       window.location.href =
-        "mailto:leasing@ogdenre.com?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+        "mailto:leasing@steinmeyerbuilding.com?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
     });
   }
 
   function wireReveal() {
-    var items = document.querySelectorAll(".reveal, .reveal-stagger");
+    var items = document.querySelectorAll(".reveal");
     if (!("IntersectionObserver" in window)) {
       items.forEach(function (el) { el.classList.add("is-visible"); });
       return;
@@ -840,34 +980,29 @@
           }
         });
       },
-      { threshold: 0.15 }
+      { threshold: 0.12 }
     );
     items.forEach(function (el) { io.observe(el); });
   }
 
-  function wireNavAndFloatCta() {
+  function wireNav() {
     var nav = document.getElementById("nav");
-    var floatCta = document.getElementById("float-cta");
-    var hero = document.getElementById("hero");
-    function onScroll() {
-      var scrolled = window.scrollY > 40;
-      nav.classList.toggle("is-scrolled", scrolled);
-      var heroBottom = hero.getBoundingClientRect().bottom;
-      floatCta.classList.toggle("is-visible", heroBottom < 0);
-    }
+    function onScroll() { nav.classList.toggle("is-scrolled", window.scrollY > 20); }
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
   }
 
   document.addEventListener("DOMContentLoaded", function () {
     renderCopy();
-    renderStats();
-    renderNearby();
+    renderTimeline();
+    renderSpec();
     renderSuites();
+    renderLandmarks();
+    renderDistrictInfo();
     renderBrokers();
+    renderFooterBits();
     wireForm();
+    wireNav();
     wireReveal();
-    wireNavAndFloatCta();
-    document.getElementById("year").textContent = new Date().getFullYear();
   });
 </script>
